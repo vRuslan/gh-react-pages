@@ -1,0 +1,13 @@
+services:
+  ltm-apache:
+    image: stephenyu/nginx-http2-ssl
+    container_name: nginx-http2-ssl
+    restart: unless-stopped
+    ports:
+      - 8800:80
+      - 4443:443
+    volumes:
+      - ./cert.pem:/ssl/cert.pem
+      - ./key.pem:/ssl/key.pem
+      - ./sites-available:/ssl/key.pem
+      - ./build:/usr/share/nginx/html
